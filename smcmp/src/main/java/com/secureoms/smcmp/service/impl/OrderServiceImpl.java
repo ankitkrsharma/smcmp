@@ -24,6 +24,10 @@ public class OrderServiceImpl implements OrderService {
         return orderRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Order not found"));
     }
+   @Override
+    public List<Order> getAllOrders() {
+        return orderRepository.findAll();
+    }
 
     @Override
     public List<Order> getOrdersByTenant(Long tenantId) {

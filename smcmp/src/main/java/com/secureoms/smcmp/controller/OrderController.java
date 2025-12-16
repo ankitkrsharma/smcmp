@@ -18,12 +18,25 @@ public class OrderController {
     // Create order
     @PostMapping
     public ResponseEntity<Order> createOrder(@RequestBody Order order) {
-        return ResponseEntity.ok(orderService.createOrder(order));
+        Order savedOrder = orderService.createOrder(order);
+        return ResponseEntity.ok(savedOrder);
     }
 
-    // Get orders by tenant
+    // Get all orders
+    @GetMapping
+    public ResponseEntity<List<Order>> getAllOrders() {
+        return ResponseEntity.ok(orderService.getAllOrders());
+    }
+
+    // Get order by ID
+    @GetMapping("/{id}")
+    public ResponseEntity<Order> getOrderById(@PathVariable Long id) {
+        return ResponseEntity.ok(orderService.getOrderById(id));
+    }
+
+    // Get orders by tenant ID (MULTI-TENANCY CORE FEATURE)
     @GetMapping("/tenant/{tenantId}")
-    public ResponseEntity<List<Order>> getOrdersByTenant(@PathVariable Long tenantId) {
+    public ResponseEntity<List<Order>> getOrdersByTenantId(@PathVariable Long tenantId) {
         return ResponseEntity.ok(orderService.getOrdersByTenant(tenantId));
     }
 }

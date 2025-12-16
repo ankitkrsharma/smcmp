@@ -12,9 +12,9 @@ public class TenantServiceImpl implements TenantService {
 
     private final TenantRepository tenantRepository;
 
-    // public TenantServiceImpl(TenantRepository tenantRepository) {
-    //     this.tenantRepository = tenantRepository;
-    // }
+    public TenantServiceImpl(TenantRepository tenantRepository) {
+        this.tenantRepository = tenantRepository;
+    }
 
     @Override
     public Tenant createTenant(Tenant tenant) {

@@ -10,6 +10,8 @@ public interface OrderService {
     Order getOrderById(Long id);
 
     List<Order> getOrdersByTenant(Long tenantId);
+    
+    List<Order> getAllOrders();
 
     // Order updateOrder(Long id, Order order);
 
